@@ -446,6 +446,9 @@ public class CameraRollManager extends ReactContextBaseJavaModule {
       } catch (IOException e) {
         FLog.e(ReactConstants.TAG, "Could not get video metadata for " + photoUri.toString(), e);
         return false;
+      } catch (RuntimeException e) {
+        FLog.e(ReactConstants.TAG, "RuntimeException while fetching for " + photoUri.toString(), e);
+        return false;
       }
     }
 
